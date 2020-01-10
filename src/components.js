@@ -21,12 +21,12 @@ export default (editor, opt = {}) => {
   const dc = editor.DomComponents;
   const defaultType = dc.getType('default');
   const defaultModel = defaultType.model;
-  const burgerType = 'zing-chart-donut';
+  const barChart = 'zing-chart-bar';
 
-  dc.addType(burgerType, {
+  dc.addType(barChart, {
     model: defaultModel.extend({
       init() {
-        this.listenTo(this, 'change:chartvalues change:chartheight change:chartlabels', this.handleTypeChange);
+        this.listenTo(this, 'change:chartvalues change:chartheight change:chartlabels change:chartType', this.handleTypeChange);
       },
       handleTypeChange() {
         const view = this.getView(); 
@@ -61,12 +61,24 @@ export default (editor, opt = {}) => {
             label: 'Chart Labels', 
             placeholder: 'Insert the chart labels separated by a comma, following the same order as the matching values.',
             changeProp: 1,
+          },
+          {
+            type: 'select',
+            name: 'chartType', 
+            label: 'Chart Type', 
+            placeholder: '',
+            changeProp: 1,
+            options: [ // Array of options
+              { id: 'bar', name: 'Vertical Bar'},
+              { id: 'hbar', name: 'Horizontal Bar'}
+            ]
           }
         ],  
         // Some default value
         chartvalues      : '42,13,21,15',
-        chartlabels      : 'First,Second,Third,Fourth',
+        chartlabels      : 'First, Second, Third, Fourth',
         chartheight      : '400',
+        chartType        : 'bar',
         chartBlack       : black,
         chartWhite       : white,
         chartNavy        : navy,
@@ -125,7 +137,7 @@ export default (editor, opt = {}) => {
             },
             graphset: [
               {
-                type: 'bar',
+                type : '{[ chartType ]}',
                 plot: {
                   'value-box': {
                     text: '%v %',
@@ -238,8 +250,8 @@ export default (editor, opt = {}) => {
     }, {
       isComponent(el) {
         if(el.getAttribute &&
-          el.getAttribute('data-gjs-type') == burgerType) {
-          return {type: burgerType};
+          el.getAttribute('data-gjs-type') == barChart) {
+          return {type: barChart};
         }
       },
     }),

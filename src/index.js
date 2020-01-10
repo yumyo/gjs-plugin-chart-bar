@@ -2,19 +2,19 @@ import grapesjs from 'grapesjs';
 import loadBlocks from './blocks';
 import loadComponents from './components';
 import {
-  hChartDonutRef
+  hChartBarRef
 } from './consts';
 
-export default grapesjs.plugins.add('gjs-chart-donut', (editor, opts = {}) => {
+export default grapesjs.plugins.add('gjs-chart-bar', (editor, opts = {}) => {
   let c = opts;
 
   let defaults = {
-    blocks: [hChartDonutRef],
+    blocks: [hChartBarRef],
     defaultStyle: 1,
-    chartDonutClsPfx: 'chart-donut',
-    labelChartDonut: 'Donut Chart',
-    labelChartDonutBlock: 'Chart Donut',
-    labelChartDonutCategory: 'Charts',
+    chartBarClsPfx: 'chart-bar',
+    labelChartBar: 'Bar Chart',
+    labelChartBarBlock: 'Bar Chart',
+    labelChartBarCategory: 'Charts',
   };
 
   // Load defaults
