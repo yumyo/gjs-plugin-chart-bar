@@ -21,7 +21,7 @@ export default (editor, opt = {}) => {
   const dc = editor.DomComponents;
   const defaultType = dc.getType('default');
   const defaultModel = defaultType.model;
-  const barChart = 'zing-chart-bar';
+  const barChart = 'gjs-chart-bar';
 
   dc.addType(barChart, {
     model: defaultModel.extend({

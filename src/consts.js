@@ -1,6 +1,6 @@
 export const
-  hChartBarRef = 'h-zing-bar',
-  chartBarRef = 'zing-bar',
+  hChartBarRef = 'h-chart-bar',
+  chartBarRef = 'chart-bar',
   black = '#000000',
   white = '#ffffff',
   navy = '#002a5e',

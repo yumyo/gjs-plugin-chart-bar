@@ -12,8 +12,8 @@ export default grapesjs.plugins.add('gjs-chart-bar', (editor, opts = {}) => {
     blocks: [hChartBarRef],
     defaultStyle: 1,
     chartBarClsPfx: 'chart-bar',
-    labelChartBar: 'Bar Chart',
-    labelChartBarBlock: 'Bar Chart',
+    labelChartBar: 'Bar H/V',
+    labelChartBarBlock: 'Bar H/V',
     labelChartBarCategory: 'Charts',
   };
 
